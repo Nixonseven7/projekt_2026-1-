@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "SKKZv5P9j2s=",
+  "dgSpecHash": "x/RVsTYx/zk=",
   "success": true,
   "projectFilePath": "C:\\Users\\nixon.berglindstran\\Desktop\\skol code\\projekt_2026(1)\\projekt_1\\projekt_1.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\nixon.berglindstran\\.nuget\\packages\\raylib-cs\\7.0.2\\raylib-cs.7.0.2.nupkg.sha512"
+  ],
   "logs": []
 }
