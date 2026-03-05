@@ -10,6 +10,7 @@ public class Textures()
         
     }
     
+    
     public static Texture2D Wiz()
     {
         Texture2D Enemy_wiz = Raylib.LoadTexture(@"enemy_wiz.png");

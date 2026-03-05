@@ -1,0 +1,54 @@
+using Raylib_cs;
+using System.Numerics;
+public class Frames()
+{
+    
+    public static int DudeFrames(int dudeframe)
+    {
+        Texture2D Dude = Textures.Dude();
+        Rectangle DudeSpriteSourcef1 = new(0, 0, 64, 64);
+        Rectangle DudeSpriteSourcef2 = new(64, 0, 64, 64);
+        Rectangle DudeSpriteSourcef3 = new(0, 64, 64, 64);
+        Rectangle DudeSpriteDest = new(600, 400, 256, 256);
+        Vector2 DudeOrigin = new Vector2(DudeSpriteDest.Width / 2, DudeSpriteDest.Height / 2);
+        float DudeRotation = 0;
+
+        
+        if (dudeframe == 0)
+        {
+            dudeframe = 60;
+            Raylib.DrawTexturePro(Dude, DudeSpriteSourcef1, DudeSpriteDest, DudeOrigin, DudeRotation, Color.White);
+        }
+        else if (dudeframe > 50)
+        {
+            Raylib.DrawTexturePro(Dude, DudeSpriteSourcef1, DudeSpriteDest, DudeOrigin, DudeRotation, Color.White);
+            dudeframe -= 1;
+        }
+        else if (dudeframe > 40 && dudeframe <= 50)
+        {
+            Raylib.DrawTexturePro(Dude, DudeSpriteSourcef2, DudeSpriteDest, DudeOrigin, DudeRotation, Color.White);
+            dudeframe -= 1;
+        }
+        else if (dudeframe >= 30 && dudeframe <= 40)
+        {
+            Raylib.DrawTexturePro(Dude, DudeSpriteSourcef3, DudeSpriteDest, DudeOrigin, DudeRotation, Color.White);
+            dudeframe -= 1;
+        }
+        else if (dudeframe >= 20 && dudeframe <= 30)
+        {
+            Raylib.DrawTexturePro(Dude, DudeSpriteSourcef3, DudeSpriteDest, DudeOrigin, DudeRotation, Color.White);
+            dudeframe -= 1;
+        }
+        else if (dudeframe >= 10 && dudeframe <= 20)
+        {
+            Raylib.DrawTexturePro(Dude, DudeSpriteSourcef2, DudeSpriteDest, DudeOrigin, DudeRotation, Color.White);
+            dudeframe -= 1;
+        }
+        else if (dudeframe >= 1 && dudeframe <= 10)
+        {
+            Raylib.DrawTexturePro(Dude, DudeSpriteSourcef1, DudeSpriteDest, DudeOrigin, DudeRotation, Color.White);
+            dudeframe -= 1;
+        }
+        return dudeframe;
+    }
+}
