@@ -20,6 +20,14 @@ public class Program()
         Dude.texture = Textures.Dude();
         Rectangle enemyWizRectangle = new(800, 350, Enemy_wiz.Dimensions);
 
+        // enemy movement
+        float sincelast = 0;
+        float cooldown = 10;
+        float velocity = 5;
+        float positionx = 1200;
+        float positiony = 500;
+
+
         while (!Raylib.WindowShouldClose())
         {
             //Input
@@ -37,14 +45,20 @@ public class Program()
             Raylib.BeginDrawing();
             Raylib.ClearBackground(Color.Gray);
 
-            int cooldown = 0;
-            int velocity = 0;
-            int movement = 0;
+
+
+            sincelast += 1;
+
+            if (sincelast >= cooldown)
+            {
+                positionx -= velocity;
+                sincelast = 0;
+            }
 
 
 
             dudeframe = Frames.DudeFrames(dudeframe, Dude.texture);
-            gobantFrame = Frames.GobantFrames(gobantFrame, Gobant.texture);
+            gobantFrame = Frames.GobantFrames(gobantFrame, Gobant.texture, positionx, positiony);
             Raylib.DrawTexture(Enemy_wiz, (int)enemyWizRectangle.X, (int)enemyWizRectangle.Y, Color.White);
             Raylib.EndDrawing();
         }

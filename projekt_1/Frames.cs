@@ -1,5 +1,6 @@
 using Raylib_cs;
 using System.Numerics;
+using System.Security.Cryptography.X509Certificates;
 public class Frames()
 {
 
@@ -52,13 +53,13 @@ public class Frames()
         return dudeframe;
     }
 
-    public static int GobantFrames(int gobantFrame, Texture2D Gobant)
+    public static int GobantFrames(int gobantFrame, Texture2D Gobant, float x, float y)
     {
         Rectangle GobantSpriteSourcef1 = new(0, 0, 64, 64);
         Rectangle GobantSpriteSourcef2 = new(64, 0, 64, 64);
         Rectangle GobantSpriteSourcef3 = new(0, 64, 64, 64);
         Rectangle GobantSpriteSourcef4 = new(64, 64, 64, 64);
-        Rectangle GobantSpriteDest = new(800, 400, 256, 256);
+        Rectangle GobantSpriteDest = new(x, y, 128, 128);
         Vector2 GobantOrigin = new Vector2(GobantSpriteDest.Width, GobantSpriteDest.Height);
         float GobantRotation = 0;
         if (gobantFrame == 0)
@@ -87,6 +88,7 @@ public class Frames()
             gobantFrame -= 1;
         }
         return gobantFrame;
+        
     }
 
 }
