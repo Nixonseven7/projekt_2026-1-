@@ -23,3 +23,4 @@ C:\Users\nixon.berglindstran\Desktop\skol code\projekt_2026(1)\projekt_1\obj\Deb
 C:\Users\nixon.berglindstran\Desktop\skol code\projekt_2026(1)\projekt_1\obj\Debug\net9.0\ref\projekt_1.dll
 C:\Users\nixon.berglindstran\Desktop\skol code\projekt_2026(1)\projekt_1\bin\Debug\net9.0\enemy_wiz.png
 C:\Users\nixon.berglindstran\Desktop\skol code\projekt_2026(1)\projekt_1\bin\Debug\net9.0\Dude.png
+C:\Users\nixon.berglindstran\Desktop\skol code\projekt_2026(1)\projekt_1\bin\Debug\net9.0\gobant.FV1.png

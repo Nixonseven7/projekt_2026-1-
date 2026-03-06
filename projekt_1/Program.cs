@@ -1,4 +1,6 @@
 ﻿
+using Dudeclass;
+using EnemiesClass;
 using Raylib_cs;
 using System.Numerics;
 
@@ -10,9 +12,12 @@ public class Program()
         Raylib.InitWindow(1200, 800, "Dazzling Dreams");
         Raylib.SetTargetFPS(60);
         int dudeframe = 0;
+        int gobantFrame = 0;
 
 
         Texture2D Enemy_wiz = Textures.Wiz();
+        Gobant.texture = Textures.ant();
+        Dude.texture = Textures.Dude();
         Rectangle enemyWizRectangle = new(800, 350, Enemy_wiz.Dimensions);
 
         while (!Raylib.WindowShouldClose())
@@ -38,7 +43,8 @@ public class Program()
 
 
 
-            dudeframe = Frames.DudeFrames(dudeframe);
+            dudeframe = Frames.DudeFrames(dudeframe, Dude.texture);
+            gobantFrame = Frames.GobantFrames(gobantFrame, Gobant.texture);
             Raylib.DrawTexture(Enemy_wiz, (int)enemyWizRectangle.X, (int)enemyWizRectangle.Y, Color.White);
             Raylib.EndDrawing();
         }

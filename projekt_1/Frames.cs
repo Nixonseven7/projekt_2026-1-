@@ -2,10 +2,10 @@ using Raylib_cs;
 using System.Numerics;
 public class Frames()
 {
-    
-    public static int DudeFrames(int dudeframe)
+
+    public static int DudeFrames(int dudeframe, Texture2D Dude)
     {
-        Texture2D Dude = Textures.Dude();
+
         Rectangle DudeSpriteSourcef1 = new(0, 0, 64, 64);
         Rectangle DudeSpriteSourcef2 = new(64, 0, 64, 64);
         Rectangle DudeSpriteSourcef3 = new(0, 64, 64, 64);
@@ -13,7 +13,7 @@ public class Frames()
         Vector2 DudeOrigin = new Vector2(DudeSpriteDest.Width / 2, DudeSpriteDest.Height / 2);
         float DudeRotation = 0;
 
-        
+
         if (dudeframe == 0)
         {
             dudeframe = 60;
@@ -51,4 +51,42 @@ public class Frames()
         }
         return dudeframe;
     }
+
+    public static int GobantFrames(int gobantFrame, Texture2D Gobant)
+    {
+        Rectangle GobantSpriteSourcef1 = new(0, 0, 64, 64);
+        Rectangle GobantSpriteSourcef2 = new(64, 0, 64, 64);
+        Rectangle GobantSpriteSourcef3 = new(0, 64, 64, 64);
+        Rectangle GobantSpriteSourcef4 = new(64, 64, 64, 64);
+        Rectangle GobantSpriteDest = new(800, 400, 256, 256);
+        Vector2 GobantOrigin = new Vector2(GobantSpriteDest.Width, GobantSpriteDest.Height);
+        float GobantRotation = 0;
+        if (gobantFrame == 0)
+        {
+            gobantFrame = 60;
+            Raylib.DrawTexturePro(Gobant, GobantSpriteSourcef1, GobantSpriteDest, GobantOrigin, GobantRotation, Color.White);
+        }
+        else if (gobantFrame >= 45)
+        {
+            Raylib.DrawTexturePro(Gobant, GobantSpriteSourcef1, GobantSpriteDest, GobantOrigin, GobantRotation, Color.White);
+            gobantFrame -= 1;
+        }
+        else if (gobantFrame >= 30 && gobantFrame < 45)
+        {
+            Raylib.DrawTexturePro(Gobant, GobantSpriteSourcef2, GobantSpriteDest, GobantOrigin, GobantRotation, Color.White);
+            gobantFrame -= 1;
+        }
+        else if (gobantFrame >= 15 && gobantFrame < 30)
+        {
+            Raylib.DrawTexturePro(Gobant, GobantSpriteSourcef3, GobantSpriteDest, GobantOrigin, GobantRotation, Color.White);
+            gobantFrame -= 1;
+        }
+        else if (gobantFrame >= 1 && gobantFrame < 15)
+        {
+            Raylib.DrawTexturePro(Gobant, GobantSpriteSourcef4, GobantSpriteDest, GobantOrigin, GobantRotation, Color.White);
+            gobantFrame -= 1;
+        }
+        return gobantFrame;
+    }
+
 }

@@ -16,4 +16,10 @@ public class Textures()
         Texture2D Enemy_wiz = Raylib.LoadTexture(@"enemy_wiz.png");
         return Enemy_wiz;
     }
+
+    public static Texture2D ant()
+    {
+        Texture2D Gobant = Raylib.LoadTexture(@"gobant.FV1.png");
+        return Gobant;
+    }
 }
