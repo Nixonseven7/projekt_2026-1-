@@ -1,54 +1,23 @@
-using Raylib_cs;
-using System.Numerics;
+// using Raylib_cs;
+// using System.Numerics;
 
-public class Movement()
-{
-// public static int MoveDirectionXorY(int xOrY)
-//     {
-//         int XOrY = xOrY;
-//         return xOrY;
-//     }
+// public class Gobmovement()
+// {
+//        public float sincelast = 0;
+//        public float gobcooldown = 10;
+//        public float gobvelocity = 5;
+//        public float gobpositionx = 1200;
+//        public float gobpositiony = 500;
 
-// public static int MoveVelocity(int velocity)
-//     {
-//         int Velocity = velocity;
-//         return velocity;
-//     }
-
-// public static int MoveCooldown(int cooldown)
-//     {
-//         int Cooldown = 0;
-//         if(Cooldown == 0)
+//         public static float Leftmove()
 //         {
-//             Cooldown = cooldown;
+//             sincelast += 1;
+
+//             if (sincelast >= gobcooldown)
+//             {
+//                 gobpositionx -= gobvelocity;
+//                 sincelast = 0;
+//             }
+//             return (gobpositionx);
 //         }
-//         return cooldown;
-//     }
-
-
-
-
-
-
-    // Texture2D Enemy_wiz = Textures.Wiz();
-    // Rectangle enemyWizRectangle = new(800, 350, Enemy_wiz.Dimensions);
-    // cooldown = Movements(cooldown, 10, (int)enemyWizRectangle.X);
-
-    // int cooldown = 0;
-
-
-    // public static int Movements(int cooldown, int velocity, int xOrY)
-    // {
-    //     if (cooldown == 0)
-    //     {
-    //         xOrY -= velocity;
-    //         cooldown = 10;
-    //     }
-    //     else
-    //     {
-    //         cooldown -= 1;
-    //     }
-    //     return cooldown;
-    // }
-
-}
+// }

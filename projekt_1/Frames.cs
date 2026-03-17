@@ -3,9 +3,17 @@ using System.Numerics;
 using System.Security.Cryptography.X509Certificates;
 public class Frames()
 {
+    static int frameTimer = 0;
 
     public static int DudeFrames(int dudeframe, Texture2D Dude)
     {
+
+        frameTimer++;
+        if (frameTimer > 10)
+        {
+            dudeframe++;
+            frameTimer = 0;
+        }
 
         Rectangle DudeSpriteSourcef1 = new(0, 0, 64, 64);
         Rectangle DudeSpriteSourcef2 = new(64, 0, 64, 64);
@@ -14,6 +22,23 @@ public class Frames()
         Vector2 DudeOrigin = new Vector2(DudeSpriteDest.Width / 2, DudeSpriteDest.Height / 2);
         float DudeRotation = 0;
 
+        // FRAME: variabel för vilken ruta som ska visas (0-3)
+        // BREDD: (i bildrutor) hela bildens bred (128) / enskilda bilden (64)
+        // HÖJD: (i bildrutor) hela bildens höjd (128) / enskilda bildens höjd (64)
+        /*
+            rad = FRAME / HÖJD
+            column = FRAME % BREDD
+            x = rad * 64
+            y = column * 64
+
+            int[] frames = {0,1,2,1}
+            
+            i++
+            i %= frames.Length
+            Rektangel src = (x, y, 64, 64)
+
+            DrawTecturePro(bilden, src, dest, osv osv)
+        */
 
         if (dudeframe == 0)
         {
@@ -25,7 +50,7 @@ public class Frames()
             Raylib.DrawTexturePro(Dude, DudeSpriteSourcef1, DudeSpriteDest, DudeOrigin, DudeRotation, Color.White);
             dudeframe -= 1;
         }
-        else if (dudeframe > 40 && dudeframe <= 50)
+        else if (dudeframe >= 40 && dudeframe <= 50)
         {
             Raylib.DrawTexturePro(Dude, DudeSpriteSourcef2, DudeSpriteDest, DudeOrigin, DudeRotation, Color.White);
             dudeframe -= 1;
@@ -88,7 +113,7 @@ public class Frames()
             gobantFrame -= 1;
         }
         return gobantFrame;
-        
+
     }
 
 }
