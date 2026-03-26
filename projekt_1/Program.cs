@@ -28,7 +28,7 @@ public class Program()
         // int perfects = 0;
 
         // enemy movement (gobant)
-        float gobpositionx = 1200;
+        float gobpositionx = 1400;
         float gobpositiony = 470;
         float sincelast = 0;
         float gobcooldown = 10;
@@ -36,19 +36,24 @@ public class Program()
 
 
         // collisions
+        Rectangle shield = new Rectangle(560, 360, 10, 60);
         Rectangle duderec = new Rectangle(600, 400, 256, 256);
         Rectangle gobantrec = new Rectangle(gobpositionx, gobpositiony, 128, 128);
 
         while (!Raylib.WindowShouldClose())
         {
             //Input
-            if (Raylib.IsKeyPressed(KeyboardKey.Z)) { }
+            // left
+            if (Raylib.IsKeyPressed(KeyboardKey.A)) { shield.X = 560; shield.Y = 360; shield.Width = 10; shield.Height = 60; }
             ;
-            if (Raylib.IsKeyPressed(KeyboardKey.X)) { }
+            // up
+            if (Raylib.IsKeyPressed(KeyboardKey.S)) { shield.X = 575; shield.Y = 320; shield.Width = 60; shield.Height = 10; }
             ;
-            if (Raylib.IsKeyPressed(KeyboardKey.Period)) { }
+            // down
+            if (Raylib.IsKeyPressed(KeyboardKey.K)) { shield.X = 575; shield.Y = 440; shield.Width = 60; shield.Height = 10; }
             ;
-            if (Raylib.IsKeyPressed(KeyboardKey.Minus)) { }
+            // right
+            if (Raylib.IsKeyPressed(KeyboardKey.L)) { shield.X = 640; shield.Y = 360; shield.Width = 10; shield.Height = 60; }
             ;
 
 
@@ -87,7 +92,8 @@ public class Program()
 
             dudeframe = Frames.DudeFrames(dudeframe, Dude.texture);
             gobantFrame = Frames.GobantFrames(gobantFrame, Gobant.texture, gobpositionx, gobpositiony);
-            Raylib.DrawTexture(Enemy_wiz, (int)enemyWizRectangle.X, (int)enemyWizRectangle.Y, Color.White);
+            // Raylib.DrawTexture(Enemy_wiz, (int)enemyWizRectangle.X, (int)enemyWizRectangle.Y, Color.White);
+            Raylib.DrawRectangle((int)shield.X, (int)shield.Y, (int)shield.Width, (int)shield.Height, Color.Brown);
             Raylib.EndDrawing();
         }
         Raylib.CloseWindow();
