@@ -22,14 +22,14 @@ public class Program()
         int gobantFrame = 0;
 
         // Miss/hit count
-        // int misses = 0;
-        // int hp = 5;
-        // int hits = 0;
-        // int perfects = 0;
+        int misses = 0;
+        int hp = 5;
+        int hits = 0;
+        int perfects = 0;
 
         // enemy movement (gobant)
         float gobpositionx = 1400;
-        float gobpositiony = 470;
+        float gobpositiony = 355;
         float sincelast = 0;
         float gobcooldown = 10;
         float gobvelocity = 5;
@@ -37,8 +37,9 @@ public class Program()
 
         // collisions
         Rectangle shield = new Rectangle(560, 360, 10, 60);
-        Rectangle duderec = new Rectangle(600, 400, 256, 256);
-        Rectangle gobantrec = new Rectangle(gobpositionx, gobpositiony, 128, 128);
+        Rectangle duderec = new Rectangle(585, 355, 32, 64);
+        Rectangle gobantrec = new Rectangle(gobpositionx, gobpositiony, 32, 64);
+        // bool areOverlapping = Raylib.CheckCollisionRecs(duderec, gobantrec);
 
         while (!Raylib.WindowShouldClose())
         {
@@ -62,8 +63,15 @@ public class Program()
             Raylib.ClearBackground(Color.Gray);
 
             // Draw text
-            // Raylib.DrawText("HP:" + hp.ToString(), 40, 40, 32, Color.Black);
-            Text.Hp();
+            // Text.Hp();
+            // Text.Hits();
+            // Text.Perfects();
+            // Text.Misses();
+            Raylib.DrawText("HP:" + hp.ToString(), 30, 30, 30, Color.Black);
+            Raylib.DrawText("Hit:" + hits.ToString(), 120, 30, 30, Color.Black);
+            Raylib.DrawText("Miss:" + misses.ToString(), 210, 30, 30, Color.Black);
+            Raylib.DrawText("Perfect:" + perfects.ToString(), 320, 30, 30, Color.Black);
+            // Raylib.DrawText( areOverlapping.ToString(), 600, 30, 30, Color.Black);
 
 
             // enemy movement (gobant)
@@ -71,27 +79,29 @@ public class Program()
 
             if (sincelast >= gobcooldown)
             {
-                gobpositionx -= gobvelocity;
+                gobantrec.X -= gobvelocity;
                 sincelast = 0;
             }
 
             // check gobant collision with dude
-            // bool areOverlapping = Raylib.CheckCollisionRecs(duderec, gobantrec);
-            // if (areOverlapping == true)
-            // {
-            //     misses++;
-            //     hp--;
+            Raylib.DrawRectangleLinesEx(gobantrec, 1, Color.Red);
+            Raylib.DrawRectangleLinesEx(duderec, 1, Color.Green);
+            bool areOverlapping = Raylib.CheckCollisionRecs(duderec, gobantrec);
+            if (areOverlapping == true)
+            {
+                misses++;
+                hp--;
 
-            //     if (hp <= 0)
-            //     {
-            //         // you lose
+                if (hp <= 0)
+                {
+                    // you lose
 
-            //     }
-            // }
+                }
+            }
 
 
             dudeframe = Frames.DudeFrames(dudeframe, Dude.texture);
-            gobantFrame = Frames.GobantFrames(gobantFrame, Gobant.texture, gobpositionx, gobpositiony);
+            gobantFrame = Frames.GobantFrames(gobantFrame, Gobant.texture, (int)gobantrec.X, (int)gobantrec.Y);
             // Raylib.DrawTexture(Enemy_wiz, (int)enemyWizRectangle.X, (int)enemyWizRectangle.Y, Color.White);
             Raylib.DrawRectangle((int)shield.X, (int)shield.Y, (int)shield.Width, (int)shield.Height, Color.Brown);
             Raylib.EndDrawing();
