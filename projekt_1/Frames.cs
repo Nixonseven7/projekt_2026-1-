@@ -78,6 +78,7 @@ public class Frames()
         return dudeframe;
     }
 
+    //hej Nixon, jag har full tillgång till din dator även om du låser den :)
     public static int GobantFrames(int gobantFrame, Texture2D Gobant, float x, float y)
     {
         Rectangle GobantSpriteSourcef1 = new(0, 0, 64, 64);
@@ -85,7 +86,7 @@ public class Frames()
         Rectangle GobantSpriteSourcef3 = new(0, 64, 64, 64);
         Rectangle GobantSpriteSourcef4 = new(64, 64, 64, 64);
         Rectangle GobantSpriteDest = new(x, y, 128, 128);
-        Vector2 GobantOrigin = new Vector2(GobantSpriteDest.Width, GobantSpriteDest.Height);
+        Vector2 GobantOrigin = new Vector2(GobantSpriteDest.Width / 3, GobantSpriteDest.Height / 8);
         float GobantRotation = 0;
         if (gobantFrame == 0)
         {
